@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Beirut City - FiveM Launcher</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #ff0000; /* Changed to red */
+            --secondary-color: #cc0000; /* Darker red for hover */
+            --background-dark: #1a1a1a;
+            --panel-dark: #2a2a2a;
+        }
+
+        body {
+            background-color: var(--background-dark);
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 70% 30%;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .main-panel, .side-panel {
+            background-color: var(--panel-dark);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .server-header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        .server-logo {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 15px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+            .server-logo:hover {
+                transform: scale(1.05);
+            }
+
+        .info-message {
+            background-color: #333;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .launch-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+            .launch-btn:hover {
+                background-color: var(--secondary-color);
+            }
+
+        .discord-widget {
+            margin: 10px 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .discord-button {
+            display: block;
+            background-color: #7289DA;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+            .discord-button:hover {
+                background-color: #5b6eae;
+            }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .launch-btn:active {
+            animation: pulse 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-panel">
+            <div class="server-header">
+                <img src="https://cdn.discordapp.com/attachments/1112085715564630148/1329871424214536202/image.png?ex=678f3687&is=678de507&hm=fa762fcda7979866bf58bfc0c81fb39baaee84b3412980aefead7cc4f8003ba1&"
+                     alt="Beirut City Logo"
+                     class="server-logo">
+                <h1><i class="fas fa-gamepad"></i> Beirut City</h1>
+            </div>
+
+            <div class="info-message">
+                <p><i class="fas fa-info-circle"></i> You must have a Citizen role to join the server. If you have it, click on Connect to Server.</p>
+            </div>
+
+            <button class="launch-btn" onclick="launchServer()">
+                <i class="fas fa-play"></i> Connect to Server
+            </button>
+        </div>
+
+        <div class="side-panel">
+            <h3><i class="fab fa-discord"></i> Discord Community</h3>
+            <div class="discord-widget">
+                <iframe src="https://discord.com/widget?id=1228310523418775653&theme=dark"
+                        width="100%"
+                        height="500"
+                        allowtransparency="true"
+                        frameborder="0"
+                        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+                </iframe>
+            </div>
+
+            <a href="https://discord.gg/beirutcity"
+               class="discord-button"
+               target="_blank">
+                <i class="fab fa-discord"></i> Join Beirut City Discord
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const serverIP = btoa('45.88.9.12:30120');
+
+        function launchServer() {
+            const ip = atob(serverIP);
+            window.location.href = `fivem://connect/${ip}`;
+        }
+    </script>
+</body>
+</html>
